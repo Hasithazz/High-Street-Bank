@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://BankService.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://BankService.com/">
+
+<xs:element name="createEmployee" type="tns:createEmployee"/>
+
+<xs:element name="createEmployeeResponse" type="tns:createEmployeeResponse"/>
+
+<xs:element name="findAdmin" type="tns:findAdmin"/>
+
+<xs:element name="findAdminResponse" type="tns:findAdminResponse"/>
+
+<xs:element name="getAdminPassword" type="tns:getAdminPassword"/>
+
+<xs:element name="getAdminPasswordResponse" type="tns:getAdminPasswordResponse"/>
+
+<xs:element name="sendAllEmployeeNames" type="tns:sendAllEmployeeNames"/>
+
+<xs:element name="sendAllEmployeeNamesResponse" type="tns:sendAllEmployeeNamesResponse"/>
+
+<xs:element name="sendAllEmployeePositions" type="tns:sendAllEmployeePositions"/>
+
+<xs:element name="sendAllEmployeePositionsResponse" type="tns:sendAllEmployeePositionsResponse"/>
+
+<xs:element name="setEmpNameAndPosition" type="tns:setEmpNameAndPosition"/>
+
+<xs:element name="setEmpNameAndPositionResponse" type="tns:setEmpNameAndPositionResponse"/>
+
+<xs:complexType name="findAdmin">
+<xs:sequence>
+<xs:element name="userName" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAdminResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendAllEmployeePositions">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="sendAllEmployeePositionsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendAllEmployeeNames">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="sendAllEmployeeNamesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAdminPassword">
+<xs:sequence>
+<xs:element name="userName" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAdminPasswordResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createEmployee">
+<xs:sequence>
+<xs:element name="userName" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="Name" type="xs:string" minOccurs="0"/>
+<xs:element name="position" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createEmployeeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setEmpNameAndPosition">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setEmpNameAndPositionResponse">
+<xs:sequence/>
+</xs:complexType>
+</xs:schema>

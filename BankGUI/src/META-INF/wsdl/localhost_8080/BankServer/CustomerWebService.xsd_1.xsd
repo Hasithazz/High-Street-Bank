@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://BankService.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://BankService.com/">
+
+<xs:element name="getAllCustomersDetails" type="tns:getAllCustomersDetails"/>
+
+<xs:element name="getAllCustomersDetailsResponse" type="tns:getAllCustomersDetailsResponse"/>
+
+<xs:element name="getCurrentCusAccNo" type="tns:getCurrentCusAccNo"/>
+
+<xs:element name="getCustomerName" type="tns:getCustomerName"/>
+
+<xs:element name="getCustomerNameResponse" type="tns:getCustomerNameResponse"/>
+
+<xs:element name="sendAllStringDetails" type="tns:sendAllStringDetails"/>
+
+<xs:element name="sendAllStringDetailsResponse" type="tns:sendAllStringDetailsResponse"/>
+
+<xs:element name="sendCusAccNo" type="tns:sendCusAccNo"/>
+
+<xs:element name="sendCusAccNoResponse" type="tns:sendCusAccNoResponse"/>
+
+<xs:element name="setBalance" type="tns:setBalance"/>
+
+<xs:element name="setBalanceResponse" type="tns:setBalanceResponse"/>
+
+<xs:element name="setCustomerBD" type="tns:setCustomerBD"/>
+
+<xs:element name="setCustomerBDResponse" type="tns:setCustomerBDResponse"/>
+
+<xs:element name="setSortCode" type="tns:setSortCode"/>
+
+<xs:element name="setSortCodeResponse" type="tns:setSortCodeResponse"/>
+
+<xs:complexType name="setSortCode">
+<xs:sequence>
+<xs:element name="accNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setSortCodeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCurrentCusAccNo">
+<xs:sequence>
+<xs:element name="accNO" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setCustomerBD">
+<xs:sequence>
+<xs:element name="accNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setCustomerBDResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCustomerName">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getCustomerNameResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendCusAccNo">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="sendCusAccNoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllCustomersDetails">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllCustomersDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendAllStringDetails">
+<xs:sequence>
+<xs:element name="accNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendAllStringDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setBalance">
+<xs:sequence>
+<xs:element name="accNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setBalanceResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
