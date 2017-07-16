@@ -139,6 +139,7 @@ public class CustomerAccount extends javax.swing.JFrame {
 
         jLabel10.setText("Card : ");
 
+        jBtnEdit.setBackground(new java.awt.Color(102, 102, 255));
         jBtnEdit.setText("Edit");
         jBtnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +155,7 @@ public class CustomerAccount extends javax.swing.JFrame {
         jTextAreaAddress.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextAreaAddress);
 
+        jBtnSave.setBackground(new java.awt.Color(102, 102, 255));
         jBtnSave.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jBtnSave.setText("Save");
         jBtnSave.setEnabled(false);

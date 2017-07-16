@@ -24,18 +24,24 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetAdminPassword_QNAME = new QName("http://BankService.com/", "getAdminPassword");
-    private final static QName _SendAllEmployeeNames_QNAME = new QName("http://BankService.com/", "sendAllEmployeeNames");
-    private final static QName _SendAllEmployeePositions_QNAME = new QName("http://BankService.com/", "sendAllEmployeePositions");
-    private final static QName _FindAdmin_QNAME = new QName("http://BankService.com/", "findAdmin");
-    private final static QName _SendAllEmployeeNamesResponse_QNAME = new QName("http://BankService.com/", "sendAllEmployeeNamesResponse");
-    private final static QName _SendAllEmployeePositionsResponse_QNAME = new QName("http://BankService.com/", "sendAllEmployeePositionsResponse");
+    private final static QName _SetEmployeeDetails_QNAME = new QName("http://BankService.com/", "setEmployeeDetails");
     private final static QName _CreateEmployeeResponse_QNAME = new QName("http://BankService.com/", "createEmployeeResponse");
     private final static QName _FindAdminResponse_QNAME = new QName("http://BankService.com/", "findAdminResponse");
     private final static QName _GetAdminPasswordResponse_QNAME = new QName("http://BankService.com/", "getAdminPasswordResponse");
-    private final static QName _SetEmpNameAndPosition_QNAME = new QName("http://BankService.com/", "setEmpNameAndPosition");
-    private final static QName _CreateEmployee_QNAME = new QName("http://BankService.com/", "createEmployee");
     private final static QName _SetEmpNameAndPositionResponse_QNAME = new QName("http://BankService.com/", "setEmpNameAndPositionResponse");
+    private final static QName _GetAdminPassword_QNAME = new QName("http://BankService.com/", "getAdminPassword");
+    private final static QName _SendAllEmployeeNames_QNAME = new QName("http://BankService.com/", "sendAllEmployeeNames");
+    private final static QName _GetEmployeePositionResponse_QNAME = new QName("http://BankService.com/", "getEmployeePositionResponse");
+    private final static QName _SendAllEmployeePositions_QNAME = new QName("http://BankService.com/", "sendAllEmployeePositions");
+    private final static QName _FindAdmin_QNAME = new QName("http://BankService.com/", "findAdmin");
+    private final static QName _GetEmployeeNameResponse_QNAME = new QName("http://BankService.com/", "getEmployeeNameResponse");
+    private final static QName _GetEmployeeName_QNAME = new QName("http://BankService.com/", "getEmployeeName");
+    private final static QName _SendAllEmployeeNamesResponse_QNAME = new QName("http://BankService.com/", "sendAllEmployeeNamesResponse");
+    private final static QName _SendAllEmployeePositionsResponse_QNAME = new QName("http://BankService.com/", "sendAllEmployeePositionsResponse");
+    private final static QName _SetEmpNameAndPosition_QNAME = new QName("http://BankService.com/", "setEmpNameAndPosition");
+    private final static QName _GetEmployeePosition_QNAME = new QName("http://BankService.com/", "getEmployeePosition");
+    private final static QName _CreateEmployee_QNAME = new QName("http://BankService.com/", "createEmployee");
+    private final static QName _SetEmployeeDetailsResponse_QNAME = new QName("http://BankService.com/", "setEmployeeDetailsResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.bankservice
@@ -69,11 +75,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetEmployeeNameResponse }
+     * 
+     */
+    public GetEmployeeNameResponse createGetEmployeeNameResponse() {
+        return new GetEmployeeNameResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetEmployeePositionResponse }
+     * 
+     */
+    public GetEmployeePositionResponse createGetEmployeePositionResponse() {
+        return new GetEmployeePositionResponse();
+    }
+
+    /**
      * Create an instance of {@link SendAllEmployeePositions }
      * 
      */
     public SendAllEmployeePositions createSendAllEmployeePositions() {
         return new SendAllEmployeePositions();
+    }
+
+    /**
+     * Create an instance of {@link GetEmployeeName }
+     * 
+     */
+    public GetEmployeeName createGetEmployeeName() {
+        return new GetEmployeeName();
     }
 
     /**
@@ -90,6 +120,46 @@ public class ObjectFactory {
      */
     public SendAllEmployeePositionsResponse createSendAllEmployeePositionsResponse() {
         return new SendAllEmployeePositionsResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetEmployeePosition }
+     * 
+     */
+    public GetEmployeePosition createGetEmployeePosition() {
+        return new GetEmployeePosition();
+    }
+
+    /**
+     * Create an instance of {@link SetEmpNameAndPosition }
+     * 
+     */
+    public SetEmpNameAndPosition createSetEmpNameAndPosition() {
+        return new SetEmpNameAndPosition();
+    }
+
+    /**
+     * Create an instance of {@link CreateEmployee }
+     * 
+     */
+    public CreateEmployee createCreateEmployee() {
+        return new CreateEmployee();
+    }
+
+    /**
+     * Create an instance of {@link SetEmployeeDetailsResponse }
+     * 
+     */
+    public SetEmployeeDetailsResponse createSetEmployeeDetailsResponse() {
+        return new SetEmployeeDetailsResponse();
+    }
+
+    /**
+     * Create an instance of {@link SetEmployeeDetails }
+     * 
+     */
+    public SetEmployeeDetails createSetEmployeeDetails() {
+        return new SetEmployeeDetails();
     }
 
     /**
@@ -117,22 +187,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SetEmpNameAndPosition }
-     * 
-     */
-    public SetEmpNameAndPosition createSetEmpNameAndPosition() {
-        return new SetEmpNameAndPosition();
-    }
-
-    /**
-     * Create an instance of {@link CreateEmployee }
-     * 
-     */
-    public CreateEmployee createCreateEmployee() {
-        return new CreateEmployee();
-    }
-
-    /**
      * Create an instance of {@link SetEmpNameAndPositionResponse }
      * 
      */
@@ -141,57 +195,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAdminPassword }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetEmployeeDetails }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://BankService.com/", name = "getAdminPassword")
-    public JAXBElement<GetAdminPassword> createGetAdminPassword(GetAdminPassword value) {
-        return new JAXBElement<GetAdminPassword>(_GetAdminPassword_QNAME, GetAdminPassword.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SendAllEmployeeNames }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://BankService.com/", name = "sendAllEmployeeNames")
-    public JAXBElement<SendAllEmployeeNames> createSendAllEmployeeNames(SendAllEmployeeNames value) {
-        return new JAXBElement<SendAllEmployeeNames>(_SendAllEmployeeNames_QNAME, SendAllEmployeeNames.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SendAllEmployeePositions }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://BankService.com/", name = "sendAllEmployeePositions")
-    public JAXBElement<SendAllEmployeePositions> createSendAllEmployeePositions(SendAllEmployeePositions value) {
-        return new JAXBElement<SendAllEmployeePositions>(_SendAllEmployeePositions_QNAME, SendAllEmployeePositions.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FindAdmin }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://BankService.com/", name = "findAdmin")
-    public JAXBElement<FindAdmin> createFindAdmin(FindAdmin value) {
-        return new JAXBElement<FindAdmin>(_FindAdmin_QNAME, FindAdmin.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SendAllEmployeeNamesResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://BankService.com/", name = "sendAllEmployeeNamesResponse")
-    public JAXBElement<SendAllEmployeeNamesResponse> createSendAllEmployeeNamesResponse(SendAllEmployeeNamesResponse value) {
-        return new JAXBElement<SendAllEmployeeNamesResponse>(_SendAllEmployeeNamesResponse_QNAME, SendAllEmployeeNamesResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SendAllEmployeePositionsResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://BankService.com/", name = "sendAllEmployeePositionsResponse")
-    public JAXBElement<SendAllEmployeePositionsResponse> createSendAllEmployeePositionsResponse(SendAllEmployeePositionsResponse value) {
-        return new JAXBElement<SendAllEmployeePositionsResponse>(_SendAllEmployeePositionsResponse_QNAME, SendAllEmployeePositionsResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "setEmployeeDetails")
+    public JAXBElement<SetEmployeeDetails> createSetEmployeeDetails(SetEmployeeDetails value) {
+        return new JAXBElement<SetEmployeeDetails>(_SetEmployeeDetails_QNAME, SetEmployeeDetails.class, null, value);
     }
 
     /**
@@ -222,12 +231,111 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetEmpNameAndPositionResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "setEmpNameAndPositionResponse")
+    public JAXBElement<SetEmpNameAndPositionResponse> createSetEmpNameAndPositionResponse(SetEmpNameAndPositionResponse value) {
+        return new JAXBElement<SetEmpNameAndPositionResponse>(_SetEmpNameAndPositionResponse_QNAME, SetEmpNameAndPositionResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAdminPassword }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "getAdminPassword")
+    public JAXBElement<GetAdminPassword> createGetAdminPassword(GetAdminPassword value) {
+        return new JAXBElement<GetAdminPassword>(_GetAdminPassword_QNAME, GetAdminPassword.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SendAllEmployeeNames }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "sendAllEmployeeNames")
+    public JAXBElement<SendAllEmployeeNames> createSendAllEmployeeNames(SendAllEmployeeNames value) {
+        return new JAXBElement<SendAllEmployeeNames>(_SendAllEmployeeNames_QNAME, SendAllEmployeeNames.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetEmployeePositionResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "getEmployeePositionResponse")
+    public JAXBElement<GetEmployeePositionResponse> createGetEmployeePositionResponse(GetEmployeePositionResponse value) {
+        return new JAXBElement<GetEmployeePositionResponse>(_GetEmployeePositionResponse_QNAME, GetEmployeePositionResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SendAllEmployeePositions }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "sendAllEmployeePositions")
+    public JAXBElement<SendAllEmployeePositions> createSendAllEmployeePositions(SendAllEmployeePositions value) {
+        return new JAXBElement<SendAllEmployeePositions>(_SendAllEmployeePositions_QNAME, SendAllEmployeePositions.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FindAdmin }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "findAdmin")
+    public JAXBElement<FindAdmin> createFindAdmin(FindAdmin value) {
+        return new JAXBElement<FindAdmin>(_FindAdmin_QNAME, FindAdmin.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetEmployeeNameResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "getEmployeeNameResponse")
+    public JAXBElement<GetEmployeeNameResponse> createGetEmployeeNameResponse(GetEmployeeNameResponse value) {
+        return new JAXBElement<GetEmployeeNameResponse>(_GetEmployeeNameResponse_QNAME, GetEmployeeNameResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetEmployeeName }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "getEmployeeName")
+    public JAXBElement<GetEmployeeName> createGetEmployeeName(GetEmployeeName value) {
+        return new JAXBElement<GetEmployeeName>(_GetEmployeeName_QNAME, GetEmployeeName.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SendAllEmployeeNamesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "sendAllEmployeeNamesResponse")
+    public JAXBElement<SendAllEmployeeNamesResponse> createSendAllEmployeeNamesResponse(SendAllEmployeeNamesResponse value) {
+        return new JAXBElement<SendAllEmployeeNamesResponse>(_SendAllEmployeeNamesResponse_QNAME, SendAllEmployeeNamesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SendAllEmployeePositionsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "sendAllEmployeePositionsResponse")
+    public JAXBElement<SendAllEmployeePositionsResponse> createSendAllEmployeePositionsResponse(SendAllEmployeePositionsResponse value) {
+        return new JAXBElement<SendAllEmployeePositionsResponse>(_SendAllEmployeePositionsResponse_QNAME, SendAllEmployeePositionsResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SetEmpNameAndPosition }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://BankService.com/", name = "setEmpNameAndPosition")
     public JAXBElement<SetEmpNameAndPosition> createSetEmpNameAndPosition(SetEmpNameAndPosition value) {
         return new JAXBElement<SetEmpNameAndPosition>(_SetEmpNameAndPosition_QNAME, SetEmpNameAndPosition.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetEmployeePosition }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "getEmployeePosition")
+    public JAXBElement<GetEmployeePosition> createGetEmployeePosition(GetEmployeePosition value) {
+        return new JAXBElement<GetEmployeePosition>(_GetEmployeePosition_QNAME, GetEmployeePosition.class, null, value);
     }
 
     /**
@@ -240,12 +348,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SetEmpNameAndPositionResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetEmployeeDetailsResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://BankService.com/", name = "setEmpNameAndPositionResponse")
-    public JAXBElement<SetEmpNameAndPositionResponse> createSetEmpNameAndPositionResponse(SetEmpNameAndPositionResponse value) {
-        return new JAXBElement<SetEmpNameAndPositionResponse>(_SetEmpNameAndPositionResponse_QNAME, SetEmpNameAndPositionResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "setEmployeeDetailsResponse")
+    public JAXBElement<SetEmployeeDetailsResponse> createSetEmployeeDetailsResponse(SetEmployeeDetailsResponse value) {
+        return new JAXBElement<SetEmployeeDetailsResponse>(_SetEmployeeDetailsResponse_QNAME, SetEmployeeDetailsResponse.class, null, value);
     }
 
 }

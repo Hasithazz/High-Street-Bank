@@ -12,6 +12,14 @@
 
 <xs:element name="getAdminPasswordResponse" type="tns:getAdminPasswordResponse"/>
 
+<xs:element name="getEmployeeName" type="tns:getEmployeeName"/>
+
+<xs:element name="getEmployeeNameResponse" type="tns:getEmployeeNameResponse"/>
+
+<xs:element name="getEmployeePosition" type="tns:getEmployeePosition"/>
+
+<xs:element name="getEmployeePositionResponse" type="tns:getEmployeePositionResponse"/>
+
 <xs:element name="sendAllEmployeeNames" type="tns:sendAllEmployeeNames"/>
 
 <xs:element name="sendAllEmployeeNamesResponse" type="tns:sendAllEmployeeNamesResponse"/>
@@ -23,6 +31,33 @@
 <xs:element name="setEmpNameAndPosition" type="tns:setEmpNameAndPosition"/>
 
 <xs:element name="setEmpNameAndPositionResponse" type="tns:setEmpNameAndPositionResponse"/>
+
+<xs:element name="setEmployeeDetails" type="tns:setEmployeeDetails"/>
+
+<xs:element name="setEmployeeDetailsResponse" type="tns:setEmployeeDetailsResponse"/>
+
+<xs:complexType name="setEmployeeDetails">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="position" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setEmployeeDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getEmployeeName">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getEmployeeNameResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
 
 <xs:complexType name="findAdmin">
 <xs:sequence>
@@ -80,6 +115,16 @@
 <xs:complexType name="createEmployeeResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getEmployeePosition">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getEmployeePositionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

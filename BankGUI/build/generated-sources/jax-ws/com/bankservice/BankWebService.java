@@ -27,6 +27,45 @@ public interface BankWebService {
 
     /**
      * 
+     * @param password
+     * @param name
+     * @param position
+     * @param userName
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "createEmployee", targetNamespace = "http://BankService.com/", className = "com.bankservice.CreateEmployee")
+    @ResponseWrapper(localName = "createEmployeeResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.CreateEmployeeResponse")
+    @Action(input = "http://BankService.com/BankWebService/createEmployeeRequest", output = "http://BankService.com/BankWebService/createEmployeeResponse")
+    public boolean createEmployee(
+        @WebParam(name = "userName", targetNamespace = "")
+        String userName,
+        @WebParam(name = "password", targetNamespace = "")
+        String password,
+        @WebParam(name = "Name", targetNamespace = "")
+        String name,
+        @WebParam(name = "position", targetNamespace = "")
+        String position);
+
+    /**
+     * 
+     * @param userName
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findAdmin", targetNamespace = "http://BankService.com/", className = "com.bankservice.FindAdmin")
+    @ResponseWrapper(localName = "findAdminResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.FindAdminResponse")
+    @Action(input = "http://BankService.com/BankWebService/findAdminRequest", output = "http://BankService.com/BankWebService/findAdminResponse")
+    public boolean findAdmin(
+        @WebParam(name = "userName", targetNamespace = "")
+        String userName);
+
+    /**
+     * 
      * @param userName
      * @return
      *     returns java.lang.String
@@ -43,6 +82,18 @@ public interface BankWebService {
     /**
      * 
      * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getEmployeeName", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetEmployeeName")
+    @ResponseWrapper(localName = "getEmployeeNameResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetEmployeeNameResponse")
+    @Action(input = "http://BankService.com/BankWebService/getEmployeeNameRequest", output = "http://BankService.com/BankWebService/getEmployeeNameResponse")
+    public String getEmployeeName();
+
+    /**
+     * 
+     * @return
      *     returns java.util.List<java.lang.String>
      */
     @WebMethod
@@ -51,6 +102,18 @@ public interface BankWebService {
     @ResponseWrapper(localName = "sendAllEmployeePositionsResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendAllEmployeePositionsResponse")
     @Action(input = "http://BankService.com/BankWebService/sendAllEmployeePositionsRequest", output = "http://BankService.com/BankWebService/sendAllEmployeePositionsResponse")
     public List<String> sendAllEmployeePositions();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "sendAllEmployeeNames", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendAllEmployeeNames")
+    @ResponseWrapper(localName = "sendAllEmployeeNamesResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendAllEmployeeNamesResponse")
+    @Action(input = "http://BankService.com/BankWebService/sendAllEmployeeNamesRequest", output = "http://BankService.com/BankWebService/sendAllEmployeeNamesResponse")
+    public List<String> sendAllEmployeeNames();
 
     /**
      * 
@@ -70,50 +133,29 @@ public interface BankWebService {
     /**
      * 
      * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getEmployeePosition", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetEmployeePosition")
+    @ResponseWrapper(localName = "getEmployeePositionResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetEmployeePositionResponse")
+    @Action(input = "http://BankService.com/BankWebService/getEmployeePositionRequest", output = "http://BankService.com/BankWebService/getEmployeePositionResponse")
+    public String getEmployeePosition();
+
+    /**
+     * 
+     * @param name
+     * @param position
+     * @return
      *     returns java.util.List<java.lang.String>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "sendAllEmployeeNames", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendAllEmployeeNames")
-    @ResponseWrapper(localName = "sendAllEmployeeNamesResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendAllEmployeeNamesResponse")
-    @Action(input = "http://BankService.com/BankWebService/sendAllEmployeeNamesRequest", output = "http://BankService.com/BankWebService/sendAllEmployeeNamesResponse")
-    public List<String> sendAllEmployeeNames();
-
-    /**
-     * 
-     * @param userName
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findAdmin", targetNamespace = "http://BankService.com/", className = "com.bankservice.FindAdmin")
-    @ResponseWrapper(localName = "findAdminResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.FindAdminResponse")
-    @Action(input = "http://BankService.com/BankWebService/findAdminRequest", output = "http://BankService.com/BankWebService/findAdminResponse")
-    public boolean findAdmin(
-        @WebParam(name = "userName", targetNamespace = "")
-        String userName);
-
-    /**
-     * 
-     * @param password
-     * @param name
-     * @param position
-     * @param userName
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "createEmployee", targetNamespace = "http://BankService.com/", className = "com.bankservice.CreateEmployee")
-    @ResponseWrapper(localName = "createEmployeeResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.CreateEmployeeResponse")
-    @Action(input = "http://BankService.com/BankWebService/createEmployeeRequest", output = "http://BankService.com/BankWebService/createEmployeeResponse")
-    public boolean createEmployee(
-        @WebParam(name = "userName", targetNamespace = "")
-        String userName,
-        @WebParam(name = "password", targetNamespace = "")
-        String password,
-        @WebParam(name = "Name", targetNamespace = "")
+    @RequestWrapper(localName = "setEmployeeDetails", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetEmployeeDetails")
+    @ResponseWrapper(localName = "setEmployeeDetailsResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetEmployeeDetailsResponse")
+    @Action(input = "http://BankService.com/BankWebService/setEmployeeDetailsRequest", output = "http://BankService.com/BankWebService/setEmployeeDetailsResponse")
+    public List<String> setEmployeeDetails(
+        @WebParam(name = "name", targetNamespace = "")
         String name,
         @WebParam(name = "position", targetNamespace = "")
         String position);

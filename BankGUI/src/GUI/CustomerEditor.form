@@ -78,11 +78,17 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jbtnCreateCustomer">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Create"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jbtnSelectCustomer">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Select"/>
           </Properties>
           <Events>

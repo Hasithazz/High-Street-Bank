@@ -61,8 +61,10 @@ public class CustomerEditor extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
+        jbtnCreateCustomer.setBackground(new java.awt.Color(102, 102, 255));
         jbtnCreateCustomer.setText("Create");
 
+        jbtnSelectCustomer.setBackground(new java.awt.Color(102, 102, 255));
         jbtnSelectCustomer.setText("Select");
         jbtnSelectCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

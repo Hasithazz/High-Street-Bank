@@ -14,7 +14,8 @@ import javax.swing.DefaultListModel;
  */
 public class EmployeeEditor extends javax.swing.JFrame {
 
-    private  CreateEmployee newEmployee ;
+    private CreateEmployee newEmployee ;
+    private EmployeeList empList;
     /**
      * Creates new form EmployeeEditor
      */
@@ -49,6 +50,7 @@ public class EmployeeEditor extends javax.swing.JFrame {
         jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jList1);
 
+        jbtnCreateNew.setBackground(new java.awt.Color(102, 102, 255));
         jbtnCreateNew.setText("Create New");
         jbtnCreateNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +58,7 @@ public class EmployeeEditor extends javax.swing.JFrame {
             }
         });
 
+        jbtnSelect.setBackground(new java.awt.Color(102, 102, 255));
         jbtnSelect.setText("Select");
         jbtnSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +117,8 @@ public class EmployeeEditor extends javax.swing.JFrame {
             String empPosition = empDetails[1];
             
             setEmpNameAndPosition(empName, empPosition);//set current employee name and postion in the service
-            
+            empList = new EmployeeList();
+            empList.setVisible(true);
             
         } else {
         }
