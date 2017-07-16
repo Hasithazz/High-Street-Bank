@@ -325,6 +325,29 @@ public class DatabaseConnection {
         return allPosition;    
     }
     
+    public ArrayList<String> setEmployeeDetails(String name,String position){
+        
+        ArrayList<String> details = new ArrayList<>();
+        
+        try{  
+            Class.forName(dbDriverClass);  
+            con=DriverManager.getConnection(dbURL,dbUserName,dbPassword); 
+            stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select * from employee where Name ='"+name+"' AND Position ='"+position+"'");  
+            while(rs.next()){
+                details.add(rs.getString("userName"));
+                details.add(rs.getString("userPassword"));
+                details.add(rs.getString("Name"));
+                details.add(rs.getString("Position"));
+            }
+            con.close();  
+            }catch(Exception e){
+                System.out.println("User Not Found");
+            }
+        
+        return details;    
+    }
+    
 }    
     
         

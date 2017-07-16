@@ -75,6 +75,34 @@ public class BankWebService {
         this.name = name;
         this.position = position;
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "setEmployeeDetails")
+    public ArrayList<String> setEmployeeDetails(@WebParam(name = "name") String name, @WebParam(name = "position") String position) {
+        //TODO write your implementation code here:
+        
+        return dbCon.setEmployeeDetails(name, position);
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getEmployeeName")
+    public String getEmployeeName() {
+        //TODO write your implementation code here:
+        return name;
+    }
+    
+     /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getEmployeePosition")
+    public String getEmployeePosition() {
+        //TODO write your implementation code here:
+        return position;
+    }
     
     
 }
