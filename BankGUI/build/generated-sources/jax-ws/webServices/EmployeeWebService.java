@@ -41,21 +41,6 @@ public interface EmployeeWebService {
 
     /**
      * 
-     * @param userName
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findUser", targetNamespace = "http://BankService.com/", className = "webServices.FindUser")
-    @ResponseWrapper(localName = "findUserResponse", targetNamespace = "http://BankService.com/", className = "webServices.FindUserResponse")
-    @Action(input = "http://BankService.com/EmployeeWebService/findUserRequest", output = "http://BankService.com/EmployeeWebService/findUserResponse")
-    public boolean findUser(
-        @WebParam(name = "userName", targetNamespace = "")
-        String userName);
-
-    /**
-     * 
      * @param arg0
      * @return
      *     returns java.lang.String
@@ -68,5 +53,20 @@ public interface EmployeeWebService {
     public String getPassword(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
+
+    /**
+     * 
+     * @param userName
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findUser", targetNamespace = "http://BankService.com/", className = "webServices.FindUser")
+    @ResponseWrapper(localName = "findUserResponse", targetNamespace = "http://BankService.com/", className = "webServices.FindUserResponse")
+    @Action(input = "http://BankService.com/EmployeeWebService/findUserRequest", output = "http://BankService.com/EmployeeWebService/findUserResponse")
+    public boolean findUser(
+        @WebParam(name = "userName", targetNamespace = "")
+        String userName);
 
 }

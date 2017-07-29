@@ -42,12 +42,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="getCurrentCusAccNo">
-<xs:sequence>
-<xs:element name="accNO" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="setCustomerBD">
 <xs:sequence>
 <xs:element name="accNo" type="xs:string" minOccurs="0"/>
@@ -57,6 +51,12 @@
 <xs:complexType name="setCustomerBDResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCurrentCusAccNo">
+<xs:sequence>
+<xs:element name="accNO" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -90,18 +90,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="sendAllStringDetails">
-<xs:sequence>
-<xs:element name="accNo" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="sendAllStringDetailsResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="setBalance">
 <xs:sequence>
 <xs:element name="accNo" type="xs:string" minOccurs="0"/>
@@ -111,6 +99,18 @@
 <xs:complexType name="setBalanceResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendAllStringDetails">
+<xs:sequence>
+<xs:element name="accNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendAllStringDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

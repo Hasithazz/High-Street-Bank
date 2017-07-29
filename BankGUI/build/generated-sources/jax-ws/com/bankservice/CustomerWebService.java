@@ -28,84 +28,6 @@ public interface CustomerWebService {
 
     /**
      * 
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getCustomerName", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetCustomerName")
-    @ResponseWrapper(localName = "getCustomerNameResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetCustomerNameResponse")
-    @Action(input = "http://BankService.com/CustomerWebService/getCustomerNameRequest", output = "http://BankService.com/CustomerWebService/getCustomerNameResponse")
-    public List<String> getCustomerName();
-
-    /**
-     * 
-     * @param accNO
-     */
-    @WebMethod
-    @Oneway
-    @RequestWrapper(localName = "getCurrentCusAccNo", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetCurrentCusAccNo")
-    @Action(input = "http://BankService.com/CustomerWebService/getCurrentCusAccNo")
-    public void getCurrentCusAccNo(
-        @WebParam(name = "accNO", targetNamespace = "")
-        String accNO);
-
-    /**
-     * 
-     * @param accNo
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "sendAllStringDetails", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendAllStringDetails")
-    @ResponseWrapper(localName = "sendAllStringDetailsResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendAllStringDetailsResponse")
-    @Action(input = "http://BankService.com/CustomerWebService/sendAllStringDetailsRequest", output = "http://BankService.com/CustomerWebService/sendAllStringDetailsResponse")
-    public List<String> sendAllStringDetails(
-        @WebParam(name = "accNo", targetNamespace = "")
-        String accNo);
-
-    /**
-     * 
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "sendCusAccNo", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendCusAccNo")
-    @ResponseWrapper(localName = "sendCusAccNoResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendCusAccNoResponse")
-    @Action(input = "http://BankService.com/CustomerWebService/sendCusAccNoRequest", output = "http://BankService.com/CustomerWebService/sendCusAccNoResponse")
-    public String sendCusAccNo();
-
-    /**
-     * 
-     * @param accNo
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "setCustomerBD", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetCustomerBD")
-    @ResponseWrapper(localName = "setCustomerBDResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetCustomerBDResponse")
-    @Action(input = "http://BankService.com/CustomerWebService/setCustomerBDRequest", output = "http://BankService.com/CustomerWebService/setCustomerBDResponse")
-    public String setCustomerBD(
-        @WebParam(name = "accNo", targetNamespace = "")
-        String accNo);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getAllCustomersDetails", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetAllCustomersDetails")
-    @ResponseWrapper(localName = "getAllCustomersDetailsResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetAllCustomersDetailsResponse")
-    @Action(input = "http://BankService.com/CustomerWebService/getAllCustomersDetailsRequest", output = "http://BankService.com/CustomerWebService/getAllCustomersDetailsResponse")
-    public List<String> getAllCustomersDetails();
-
-    /**
-     * 
      * @param accNo
      * @return
      *     returns double
@@ -133,5 +55,83 @@ public interface CustomerWebService {
     public int setSortCode(
         @WebParam(name = "accNo", targetNamespace = "")
         String accNo);
+
+    /**
+     * 
+     * @param accNo
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "setCustomerBD", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetCustomerBD")
+    @ResponseWrapper(localName = "setCustomerBDResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetCustomerBDResponse")
+    @Action(input = "http://BankService.com/CustomerWebService/setCustomerBDRequest", output = "http://BankService.com/CustomerWebService/setCustomerBDResponse")
+    public String setCustomerBD(
+        @WebParam(name = "accNo", targetNamespace = "")
+        String accNo);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getCustomerName", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetCustomerName")
+    @ResponseWrapper(localName = "getCustomerNameResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetCustomerNameResponse")
+    @Action(input = "http://BankService.com/CustomerWebService/getCustomerNameRequest", output = "http://BankService.com/CustomerWebService/getCustomerNameResponse")
+    public List<String> getCustomerName();
+
+    /**
+     * 
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "sendCusAccNo", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendCusAccNo")
+    @ResponseWrapper(localName = "sendCusAccNoResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendCusAccNoResponse")
+    @Action(input = "http://BankService.com/CustomerWebService/sendCusAccNoRequest", output = "http://BankService.com/CustomerWebService/sendCusAccNoResponse")
+    public String sendCusAccNo();
+
+    /**
+     * 
+     * @param accNo
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "sendAllStringDetails", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendAllStringDetails")
+    @ResponseWrapper(localName = "sendAllStringDetailsResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendAllStringDetailsResponse")
+    @Action(input = "http://BankService.com/CustomerWebService/sendAllStringDetailsRequest", output = "http://BankService.com/CustomerWebService/sendAllStringDetailsResponse")
+    public List<String> sendAllStringDetails(
+        @WebParam(name = "accNo", targetNamespace = "")
+        String accNo);
+
+    /**
+     * 
+     * @param accNO
+     */
+    @WebMethod
+    @Oneway
+    @RequestWrapper(localName = "getCurrentCusAccNo", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetCurrentCusAccNo")
+    @Action(input = "http://BankService.com/CustomerWebService/getCurrentCusAccNo")
+    public void getCurrentCusAccNo(
+        @WebParam(name = "accNO", targetNamespace = "")
+        String accNO);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getAllCustomersDetails", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetAllCustomersDetails")
+    @ResponseWrapper(localName = "getAllCustomersDetailsResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetAllCustomersDetailsResponse")
+    @Action(input = "http://BankService.com/CustomerWebService/getAllCustomersDetailsRequest", output = "http://BankService.com/CustomerWebService/getAllCustomersDetailsResponse")
+    public List<String> getAllCustomersDetails();
 
 }
