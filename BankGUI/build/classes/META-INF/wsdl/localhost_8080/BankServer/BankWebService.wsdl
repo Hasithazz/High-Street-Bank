@@ -4,11 +4,47 @@
 <xsd:import namespace="http://BankService.com/" schemaLocation="http://localhost:8080/BankServer/BankWebService?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="getEmployeePosition">
+<part name="parameters" element="tns:getEmployeePosition"/>
+</message>
+<message name="getEmployeePositionResponse">
+<part name="parameters" element="tns:getEmployeePositionResponse"/>
+</message>
+<message name="sendAllEmployeePositions">
+<part name="parameters" element="tns:sendAllEmployeePositions"/>
+</message>
+<message name="sendAllEmployeePositionsResponse">
+<part name="parameters" element="tns:sendAllEmployeePositionsResponse"/>
+</message>
+<message name="sendAllEmployeeNames">
+<part name="parameters" element="tns:sendAllEmployeeNames"/>
+</message>
+<message name="sendAllEmployeeNamesResponse">
+<part name="parameters" element="tns:sendAllEmployeeNamesResponse"/>
+</message>
+<message name="setEmpNameAndPosition">
+<part name="parameters" element="tns:setEmpNameAndPosition"/>
+</message>
+<message name="setEmpNameAndPositionResponse">
+<part name="parameters" element="tns:setEmpNameAndPositionResponse"/>
+</message>
+<message name="setEmployeeDetails">
+<part name="parameters" element="tns:setEmployeeDetails"/>
+</message>
+<message name="setEmployeeDetailsResponse">
+<part name="parameters" element="tns:setEmployeeDetailsResponse"/>
+</message>
 <message name="getAdminPassword">
 <part name="parameters" element="tns:getAdminPassword"/>
 </message>
 <message name="getAdminPasswordResponse">
 <part name="parameters" element="tns:getAdminPasswordResponse"/>
+</message>
+<message name="findAdmin">
+<part name="parameters" element="tns:findAdmin"/>
+</message>
+<message name="findAdminResponse">
+<part name="parameters" element="tns:findAdminResponse"/>
 </message>
 <message name="getEmployeeName">
 <part name="parameters" element="tns:getEmployeeName"/>
@@ -22,46 +58,34 @@
 <message name="createEmployeeResponse">
 <part name="parameters" element="tns:createEmployeeResponse"/>
 </message>
-<message name="findAdmin">
-<part name="parameters" element="tns:findAdmin"/>
-</message>
-<message name="findAdminResponse">
-<part name="parameters" element="tns:findAdminResponse"/>
-</message>
-<message name="sendAllEmployeeNames">
-<part name="parameters" element="tns:sendAllEmployeeNames"/>
-</message>
-<message name="sendAllEmployeeNamesResponse">
-<part name="parameters" element="tns:sendAllEmployeeNamesResponse"/>
-</message>
-<message name="getEmployeePosition">
-<part name="parameters" element="tns:getEmployeePosition"/>
-</message>
-<message name="getEmployeePositionResponse">
-<part name="parameters" element="tns:getEmployeePositionResponse"/>
-</message>
-<message name="sendAllEmployeePositions">
-<part name="parameters" element="tns:sendAllEmployeePositions"/>
-</message>
-<message name="sendAllEmployeePositionsResponse">
-<part name="parameters" element="tns:sendAllEmployeePositionsResponse"/>
-</message>
-<message name="setEmployeeDetails">
-<part name="parameters" element="tns:setEmployeeDetails"/>
-</message>
-<message name="setEmployeeDetailsResponse">
-<part name="parameters" element="tns:setEmployeeDetailsResponse"/>
-</message>
-<message name="setEmpNameAndPosition">
-<part name="parameters" element="tns:setEmpNameAndPosition"/>
-</message>
-<message name="setEmpNameAndPositionResponse">
-<part name="parameters" element="tns:setEmpNameAndPositionResponse"/>
-</message>
 <portType name="BankWebService">
+<operation name="getEmployeePosition">
+<input wsam:Action="http://BankService.com/BankWebService/getEmployeePositionRequest" message="tns:getEmployeePosition"/>
+<output wsam:Action="http://BankService.com/BankWebService/getEmployeePositionResponse" message="tns:getEmployeePositionResponse"/>
+</operation>
+<operation name="sendAllEmployeePositions">
+<input wsam:Action="http://BankService.com/BankWebService/sendAllEmployeePositionsRequest" message="tns:sendAllEmployeePositions"/>
+<output wsam:Action="http://BankService.com/BankWebService/sendAllEmployeePositionsResponse" message="tns:sendAllEmployeePositionsResponse"/>
+</operation>
+<operation name="sendAllEmployeeNames">
+<input wsam:Action="http://BankService.com/BankWebService/sendAllEmployeeNamesRequest" message="tns:sendAllEmployeeNames"/>
+<output wsam:Action="http://BankService.com/BankWebService/sendAllEmployeeNamesResponse" message="tns:sendAllEmployeeNamesResponse"/>
+</operation>
+<operation name="setEmpNameAndPosition">
+<input wsam:Action="http://BankService.com/BankWebService/setEmpNameAndPositionRequest" message="tns:setEmpNameAndPosition"/>
+<output wsam:Action="http://BankService.com/BankWebService/setEmpNameAndPositionResponse" message="tns:setEmpNameAndPositionResponse"/>
+</operation>
+<operation name="setEmployeeDetails">
+<input wsam:Action="http://BankService.com/BankWebService/setEmployeeDetailsRequest" message="tns:setEmployeeDetails"/>
+<output wsam:Action="http://BankService.com/BankWebService/setEmployeeDetailsResponse" message="tns:setEmployeeDetailsResponse"/>
+</operation>
 <operation name="getAdminPassword">
 <input wsam:Action="http://BankService.com/BankWebService/getAdminPasswordRequest" message="tns:getAdminPassword"/>
 <output wsam:Action="http://BankService.com/BankWebService/getAdminPasswordResponse" message="tns:getAdminPasswordResponse"/>
+</operation>
+<operation name="findAdmin">
+<input wsam:Action="http://BankService.com/BankWebService/findAdminRequest" message="tns:findAdmin"/>
+<output wsam:Action="http://BankService.com/BankWebService/findAdminResponse" message="tns:findAdminResponse"/>
 </operation>
 <operation name="getEmployeeName">
 <input wsam:Action="http://BankService.com/BankWebService/getEmployeeNameRequest" message="tns:getEmployeeName"/>
@@ -71,34 +95,64 @@
 <input wsam:Action="http://BankService.com/BankWebService/createEmployeeRequest" message="tns:createEmployee"/>
 <output wsam:Action="http://BankService.com/BankWebService/createEmployeeResponse" message="tns:createEmployeeResponse"/>
 </operation>
-<operation name="findAdmin">
-<input wsam:Action="http://BankService.com/BankWebService/findAdminRequest" message="tns:findAdmin"/>
-<output wsam:Action="http://BankService.com/BankWebService/findAdminResponse" message="tns:findAdminResponse"/>
-</operation>
-<operation name="sendAllEmployeeNames">
-<input wsam:Action="http://BankService.com/BankWebService/sendAllEmployeeNamesRequest" message="tns:sendAllEmployeeNames"/>
-<output wsam:Action="http://BankService.com/BankWebService/sendAllEmployeeNamesResponse" message="tns:sendAllEmployeeNamesResponse"/>
-</operation>
-<operation name="getEmployeePosition">
-<input wsam:Action="http://BankService.com/BankWebService/getEmployeePositionRequest" message="tns:getEmployeePosition"/>
-<output wsam:Action="http://BankService.com/BankWebService/getEmployeePositionResponse" message="tns:getEmployeePositionResponse"/>
-</operation>
-<operation name="sendAllEmployeePositions">
-<input wsam:Action="http://BankService.com/BankWebService/sendAllEmployeePositionsRequest" message="tns:sendAllEmployeePositions"/>
-<output wsam:Action="http://BankService.com/BankWebService/sendAllEmployeePositionsResponse" message="tns:sendAllEmployeePositionsResponse"/>
-</operation>
-<operation name="setEmployeeDetails">
-<input wsam:Action="http://BankService.com/BankWebService/setEmployeeDetailsRequest" message="tns:setEmployeeDetails"/>
-<output wsam:Action="http://BankService.com/BankWebService/setEmployeeDetailsResponse" message="tns:setEmployeeDetailsResponse"/>
-</operation>
-<operation name="setEmpNameAndPosition">
-<input wsam:Action="http://BankService.com/BankWebService/setEmpNameAndPositionRequest" message="tns:setEmpNameAndPosition"/>
-<output wsam:Action="http://BankService.com/BankWebService/setEmpNameAndPositionResponse" message="tns:setEmpNameAndPositionResponse"/>
-</operation>
 </portType>
 <binding name="BankWebServicePortBinding" type="tns:BankWebService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="getEmployeePosition">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="sendAllEmployeePositions">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="sendAllEmployeeNames">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="setEmpNameAndPosition">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="setEmployeeDetails">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="getAdminPassword">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="findAdmin">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -117,60 +171,6 @@
 </output>
 </operation>
 <operation name="createEmployee">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="findAdmin">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="sendAllEmployeeNames">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="getEmployeePosition">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="sendAllEmployeePositions">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="setEmployeeDetails">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="setEmpNameAndPosition">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

@@ -22,6 +22,7 @@ public class CustomerEditor extends javax.swing.JFrame {
     private ArrayList<String> customersNames = new ArrayList<>();
     private DefaultListModel listModel = new DefaultListModel();
     private static CustomerAccount cusAcc;
+    private CreateCustomer newCustomer = new CreateCustomer();
     
     /**
      * Creates new form CustomerEditor
@@ -63,6 +64,11 @@ public class CustomerEditor extends javax.swing.JFrame {
 
         jbtnCreateCustomer.setBackground(new java.awt.Color(102, 102, 255));
         jbtnCreateCustomer.setText("Create");
+        jbtnCreateCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnCreateCustomerActionPerformed(evt);
+            }
+        });
 
         jbtnSelectCustomer.setBackground(new java.awt.Color(102, 102, 255));
         jbtnSelectCustomer.setText("Select");
@@ -131,6 +137,11 @@ public class CustomerEditor extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Please select a customer first", "ERROR", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jbtnSelectCustomerActionPerformed
+
+    private void jbtnCreateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCreateCustomerActionPerformed
+        // TODO add your handling code here:
+        newCustomer.setVisible(true);
+    }//GEN-LAST:event_jbtnCreateCustomerActionPerformed
 
     /**
      * @param args the command line arguments

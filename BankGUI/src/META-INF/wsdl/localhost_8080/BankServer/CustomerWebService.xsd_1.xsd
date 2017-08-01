@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://BankService.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://BankService.com/">
 
+<xs:element name="ParseException" type="tns:ParseException"/>
+
+<xs:element name="addNewCustomer" type="tns:addNewCustomer"/>
+
+<xs:element name="addNewCustomerResponse" type="tns:addNewCustomerResponse"/>
+
 <xs:element name="getAllCustomersDetails" type="tns:getAllCustomersDetails"/>
 
 <xs:element name="getAllCustomersDetailsResponse" type="tns:getAllCustomersDetailsResponse"/>
@@ -42,6 +48,12 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="getCurrentCusAccNo">
+<xs:sequence>
+<xs:element name="accNO" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="setCustomerBD">
 <xs:sequence>
 <xs:element name="accNo" type="xs:string" minOccurs="0"/>
@@ -51,12 +63,6 @@
 <xs:complexType name="setCustomerBDResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="getCurrentCusAccNo">
-<xs:sequence>
-<xs:element name="accNO" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -90,15 +96,31 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="setBalance">
+<xs:complexType name="addNewCustomer">
 <xs:sequence>
-<xs:element name="accNo" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="bday" type="xs:string" minOccurs="0"/>
+<xs:element name="sortCode" type="xs:string" minOccurs="0"/>
+<xs:element name="accountType" type="xs:string" minOccurs="0"/>
+<xs:element name="accountNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="card" type="xs:string" minOccurs="0"/>
+<xs:element name="mobile" type="xs:string" minOccurs="0"/>
+<xs:element name="balance" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="setBalanceResponse">
+<xs:complexType name="addNewCustomerResponse">
 <xs:sequence>
-<xs:element name="return" type="xs:double"/>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ParseException">
+<xs:sequence>
+<xs:element name="errorOffset" type="xs:int"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -111,6 +133,18 @@
 <xs:complexType name="sendAllStringDetailsResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setBalance">
+<xs:sequence>
+<xs:element name="accNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setBalanceResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:double"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

@@ -28,6 +28,7 @@ public class ObjectFactory {
     private final static QName _SetSortCode_QNAME = new QName("http://BankService.com/", "setSortCode");
     private final static QName _SetCustomerBDResponse_QNAME = new QName("http://BankService.com/", "setCustomerBDResponse");
     private final static QName _SendCusAccNoResponse_QNAME = new QName("http://BankService.com/", "sendCusAccNoResponse");
+    private final static QName _ParseException_QNAME = new QName("http://BankService.com/", "ParseException");
     private final static QName _SendAllStringDetails_QNAME = new QName("http://BankService.com/", "sendAllStringDetails");
     private final static QName _SetBalance_QNAME = new QName("http://BankService.com/", "setBalance");
     private final static QName _GetAllCustomersDetails_QNAME = new QName("http://BankService.com/", "getAllCustomersDetails");
@@ -39,6 +40,8 @@ public class ObjectFactory {
     private final static QName _GetCustomerName_QNAME = new QName("http://BankService.com/", "getCustomerName");
     private final static QName _GetAllCustomersDetailsResponse_QNAME = new QName("http://BankService.com/", "getAllCustomersDetailsResponse");
     private final static QName _SetBalanceResponse_QNAME = new QName("http://BankService.com/", "setBalanceResponse");
+    private final static QName _AddNewCustomer_QNAME = new QName("http://BankService.com/", "addNewCustomer");
+    private final static QName _AddNewCustomerResponse_QNAME = new QName("http://BankService.com/", "addNewCustomerResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.bankservice
@@ -120,6 +123,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link AddNewCustomerResponse }
+     * 
+     */
+    public AddNewCustomerResponse createAddNewCustomerResponse() {
+        return new AddNewCustomerResponse();
+    }
+
+    /**
+     * Create an instance of {@link AddNewCustomer }
+     * 
+     */
+    public AddNewCustomer createAddNewCustomer() {
+        return new AddNewCustomer();
+    }
+
+    /**
      * Create an instance of {@link SendCusAccNo }
      * 
      */
@@ -149,6 +168,14 @@ public class ObjectFactory {
      */
     public SendCusAccNoResponse createSendCusAccNoResponse() {
         return new SendCusAccNoResponse();
+    }
+
+    /**
+     * Create an instance of {@link ParseException }
+     * 
+     */
+    public ParseException createParseException() {
+        return new ParseException();
     }
 
     /**
@@ -201,6 +228,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://BankService.com/", name = "sendCusAccNoResponse")
     public JAXBElement<SendCusAccNoResponse> createSendCusAccNoResponse(SendCusAccNoResponse value) {
         return new JAXBElement<SendCusAccNoResponse>(_SendCusAccNoResponse_QNAME, SendCusAccNoResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ParseException }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "ParseException")
+    public JAXBElement<ParseException> createParseException(ParseException value) {
+        return new JAXBElement<ParseException>(_ParseException_QNAME, ParseException.class, null, value);
     }
 
     /**
@@ -300,6 +336,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://BankService.com/", name = "setBalanceResponse")
     public JAXBElement<SetBalanceResponse> createSetBalanceResponse(SetBalanceResponse value) {
         return new JAXBElement<SetBalanceResponse>(_SetBalanceResponse_QNAME, SetBalanceResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AddNewCustomer }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "addNewCustomer")
+    public JAXBElement<AddNewCustomer> createAddNewCustomer(AddNewCustomer value) {
+        return new JAXBElement<AddNewCustomer>(_AddNewCustomer_QNAME, AddNewCustomer.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AddNewCustomerResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "addNewCustomerResponse")
+    public JAXBElement<AddNewCustomerResponse> createAddNewCustomerResponse(AddNewCustomerResponse value) {
+        return new JAXBElement<AddNewCustomerResponse>(_AddNewCustomerResponse_QNAME, AddNewCustomerResponse.class, null, value);
     }
 
 }

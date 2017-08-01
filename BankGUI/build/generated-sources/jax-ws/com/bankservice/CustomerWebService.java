@@ -9,6 +9,7 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.ws.Action;
+import javax.xml.ws.FaultAction;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
@@ -25,75 +26,6 @@ import javax.xml.ws.ResponseWrapper;
 })
 public interface CustomerWebService {
 
-
-    /**
-     * 
-     * @param accNo
-     * @return
-     *     returns double
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "setBalance", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetBalance")
-    @ResponseWrapper(localName = "setBalanceResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetBalanceResponse")
-    @Action(input = "http://BankService.com/CustomerWebService/setBalanceRequest", output = "http://BankService.com/CustomerWebService/setBalanceResponse")
-    public double setBalance(
-        @WebParam(name = "accNo", targetNamespace = "")
-        String accNo);
-
-    /**
-     * 
-     * @param accNo
-     * @return
-     *     returns int
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "setSortCode", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetSortCode")
-    @ResponseWrapper(localName = "setSortCodeResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetSortCodeResponse")
-    @Action(input = "http://BankService.com/CustomerWebService/setSortCodeRequest", output = "http://BankService.com/CustomerWebService/setSortCodeResponse")
-    public int setSortCode(
-        @WebParam(name = "accNo", targetNamespace = "")
-        String accNo);
-
-    /**
-     * 
-     * @param accNo
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "setCustomerBD", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetCustomerBD")
-    @ResponseWrapper(localName = "setCustomerBDResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetCustomerBDResponse")
-    @Action(input = "http://BankService.com/CustomerWebService/setCustomerBDRequest", output = "http://BankService.com/CustomerWebService/setCustomerBDResponse")
-    public String setCustomerBD(
-        @WebParam(name = "accNo", targetNamespace = "")
-        String accNo);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getCustomerName", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetCustomerName")
-    @ResponseWrapper(localName = "getCustomerNameResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetCustomerNameResponse")
-    @Action(input = "http://BankService.com/CustomerWebService/getCustomerNameRequest", output = "http://BankService.com/CustomerWebService/getCustomerNameResponse")
-    public List<String> getCustomerName();
-
-    /**
-     * 
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "sendCusAccNo", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendCusAccNo")
-    @ResponseWrapper(localName = "sendCusAccNoResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendCusAccNoResponse")
-    @Action(input = "http://BankService.com/CustomerWebService/sendCusAccNoRequest", output = "http://BankService.com/CustomerWebService/sendCusAccNoResponse")
-    public String sendCusAccNo();
 
     /**
      * 
@@ -133,5 +65,121 @@ public interface CustomerWebService {
     @ResponseWrapper(localName = "getAllCustomersDetailsResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetAllCustomersDetailsResponse")
     @Action(input = "http://BankService.com/CustomerWebService/getAllCustomersDetailsRequest", output = "http://BankService.com/CustomerWebService/getAllCustomersDetailsResponse")
     public List<String> getAllCustomersDetails();
+
+    /**
+     * 
+     * @param address
+     * @param bday
+     * @param balance
+     * @param accountType
+     * @param name
+     * @param mobile
+     * @param accountNumber
+     * @param sortCode
+     * @param card
+     * @param email
+     * @return
+     *     returns boolean
+     * @throws ParseException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "addNewCustomer", targetNamespace = "http://BankService.com/", className = "com.bankservice.AddNewCustomer")
+    @ResponseWrapper(localName = "addNewCustomerResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.AddNewCustomerResponse")
+    @Action(input = "http://BankService.com/CustomerWebService/addNewCustomerRequest", output = "http://BankService.com/CustomerWebService/addNewCustomerResponse", fault = {
+        @FaultAction(className = ParseException_Exception.class, value = "http://BankService.com/CustomerWebService/addNewCustomer/Fault/ParseException")
+    })
+    public boolean addNewCustomer(
+        @WebParam(name = "name", targetNamespace = "")
+        String name,
+        @WebParam(name = "address", targetNamespace = "")
+        String address,
+        @WebParam(name = "bday", targetNamespace = "")
+        String bday,
+        @WebParam(name = "sortCode", targetNamespace = "")
+        String sortCode,
+        @WebParam(name = "accountType", targetNamespace = "")
+        String accountType,
+        @WebParam(name = "accountNumber", targetNamespace = "")
+        String accountNumber,
+        @WebParam(name = "card", targetNamespace = "")
+        String card,
+        @WebParam(name = "mobile", targetNamespace = "")
+        String mobile,
+        @WebParam(name = "balance", targetNamespace = "")
+        String balance,
+        @WebParam(name = "email", targetNamespace = "")
+        String email)
+        throws ParseException_Exception
+    ;
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getCustomerName", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetCustomerName")
+    @ResponseWrapper(localName = "getCustomerNameResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.GetCustomerNameResponse")
+    @Action(input = "http://BankService.com/CustomerWebService/getCustomerNameRequest", output = "http://BankService.com/CustomerWebService/getCustomerNameResponse")
+    public List<String> getCustomerName();
+
+    /**
+     * 
+     * @param accNo
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "setCustomerBD", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetCustomerBD")
+    @ResponseWrapper(localName = "setCustomerBDResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetCustomerBDResponse")
+    @Action(input = "http://BankService.com/CustomerWebService/setCustomerBDRequest", output = "http://BankService.com/CustomerWebService/setCustomerBDResponse")
+    public String setCustomerBD(
+        @WebParam(name = "accNo", targetNamespace = "")
+        String accNo);
+
+    /**
+     * 
+     * @param accNo
+     * @return
+     *     returns int
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "setSortCode", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetSortCode")
+    @ResponseWrapper(localName = "setSortCodeResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetSortCodeResponse")
+    @Action(input = "http://BankService.com/CustomerWebService/setSortCodeRequest", output = "http://BankService.com/CustomerWebService/setSortCodeResponse")
+    public int setSortCode(
+        @WebParam(name = "accNo", targetNamespace = "")
+        String accNo);
+
+    /**
+     * 
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "sendCusAccNo", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendCusAccNo")
+    @ResponseWrapper(localName = "sendCusAccNoResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SendCusAccNoResponse")
+    @Action(input = "http://BankService.com/CustomerWebService/sendCusAccNoRequest", output = "http://BankService.com/CustomerWebService/sendCusAccNoResponse")
+    public String sendCusAccNo();
+
+    /**
+     * 
+     * @param accNo
+     * @return
+     *     returns double
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "setBalance", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetBalance")
+    @ResponseWrapper(localName = "setBalanceResponse", targetNamespace = "http://BankService.com/", className = "com.bankservice.SetBalanceResponse")
+    @Action(input = "http://BankService.com/CustomerWebService/setBalanceRequest", output = "http://BankService.com/CustomerWebService/setBalanceResponse")
+    public double setBalance(
+        @WebParam(name = "accNo", targetNamespace = "")
+        String accNo);
 
 }

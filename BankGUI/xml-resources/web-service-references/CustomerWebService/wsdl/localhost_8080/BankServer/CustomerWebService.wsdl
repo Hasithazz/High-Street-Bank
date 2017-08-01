@@ -4,36 +4,6 @@
 <xsd:import namespace="http://BankService.com/" schemaLocation="http://localhost:8080/BankServer/CustomerWebService?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="setBalance">
-<part name="parameters" element="tns:setBalance"/>
-</message>
-<message name="setBalanceResponse">
-<part name="parameters" element="tns:setBalanceResponse"/>
-</message>
-<message name="setSortCode">
-<part name="parameters" element="tns:setSortCode"/>
-</message>
-<message name="setSortCodeResponse">
-<part name="parameters" element="tns:setSortCodeResponse"/>
-</message>
-<message name="setCustomerBD">
-<part name="parameters" element="tns:setCustomerBD"/>
-</message>
-<message name="setCustomerBDResponse">
-<part name="parameters" element="tns:setCustomerBDResponse"/>
-</message>
-<message name="getCustomerName">
-<part name="parameters" element="tns:getCustomerName"/>
-</message>
-<message name="getCustomerNameResponse">
-<part name="parameters" element="tns:getCustomerNameResponse"/>
-</message>
-<message name="sendCusAccNo">
-<part name="parameters" element="tns:sendCusAccNo"/>
-</message>
-<message name="sendCusAccNoResponse">
-<part name="parameters" element="tns:sendCusAccNoResponse"/>
-</message>
 <message name="sendAllStringDetails">
 <part name="parameters" element="tns:sendAllStringDetails"/>
 </message>
@@ -49,27 +19,46 @@
 <message name="getAllCustomersDetailsResponse">
 <part name="parameters" element="tns:getAllCustomersDetailsResponse"/>
 </message>
+<message name="addNewCustomer">
+<part name="parameters" element="tns:addNewCustomer"/>
+</message>
+<message name="addNewCustomerResponse">
+<part name="parameters" element="tns:addNewCustomerResponse"/>
+</message>
+<message name="ParseException">
+<part name="fault" element="tns:ParseException"/>
+</message>
+<message name="getCustomerName">
+<part name="parameters" element="tns:getCustomerName"/>
+</message>
+<message name="getCustomerNameResponse">
+<part name="parameters" element="tns:getCustomerNameResponse"/>
+</message>
+<message name="setCustomerBD">
+<part name="parameters" element="tns:setCustomerBD"/>
+</message>
+<message name="setCustomerBDResponse">
+<part name="parameters" element="tns:setCustomerBDResponse"/>
+</message>
+<message name="setSortCode">
+<part name="parameters" element="tns:setSortCode"/>
+</message>
+<message name="setSortCodeResponse">
+<part name="parameters" element="tns:setSortCodeResponse"/>
+</message>
+<message name="sendCusAccNo">
+<part name="parameters" element="tns:sendCusAccNo"/>
+</message>
+<message name="sendCusAccNoResponse">
+<part name="parameters" element="tns:sendCusAccNoResponse"/>
+</message>
+<message name="setBalance">
+<part name="parameters" element="tns:setBalance"/>
+</message>
+<message name="setBalanceResponse">
+<part name="parameters" element="tns:setBalanceResponse"/>
+</message>
 <portType name="CustomerWebService">
-<operation name="setBalance">
-<input wsam:Action="http://BankService.com/CustomerWebService/setBalanceRequest" message="tns:setBalance"/>
-<output wsam:Action="http://BankService.com/CustomerWebService/setBalanceResponse" message="tns:setBalanceResponse"/>
-</operation>
-<operation name="setSortCode">
-<input wsam:Action="http://BankService.com/CustomerWebService/setSortCodeRequest" message="tns:setSortCode"/>
-<output wsam:Action="http://BankService.com/CustomerWebService/setSortCodeResponse" message="tns:setSortCodeResponse"/>
-</operation>
-<operation name="setCustomerBD">
-<input wsam:Action="http://BankService.com/CustomerWebService/setCustomerBDRequest" message="tns:setCustomerBD"/>
-<output wsam:Action="http://BankService.com/CustomerWebService/setCustomerBDResponse" message="tns:setCustomerBDResponse"/>
-</operation>
-<operation name="getCustomerName">
-<input wsam:Action="http://BankService.com/CustomerWebService/getCustomerNameRequest" message="tns:getCustomerName"/>
-<output wsam:Action="http://BankService.com/CustomerWebService/getCustomerNameResponse" message="tns:getCustomerNameResponse"/>
-</operation>
-<operation name="sendCusAccNo">
-<input wsam:Action="http://BankService.com/CustomerWebService/sendCusAccNoRequest" message="tns:sendCusAccNo"/>
-<output wsam:Action="http://BankService.com/CustomerWebService/sendCusAccNoResponse" message="tns:sendCusAccNoResponse"/>
-</operation>
 <operation name="sendAllStringDetails">
 <input wsam:Action="http://BankService.com/CustomerWebService/sendAllStringDetailsRequest" message="tns:sendAllStringDetails"/>
 <output wsam:Action="http://BankService.com/CustomerWebService/sendAllStringDetailsResponse" message="tns:sendAllStringDetailsResponse"/>
@@ -81,10 +70,35 @@
 <input wsam:Action="http://BankService.com/CustomerWebService/getAllCustomersDetailsRequest" message="tns:getAllCustomersDetails"/>
 <output wsam:Action="http://BankService.com/CustomerWebService/getAllCustomersDetailsResponse" message="tns:getAllCustomersDetailsResponse"/>
 </operation>
+<operation name="addNewCustomer">
+<input wsam:Action="http://BankService.com/CustomerWebService/addNewCustomerRequest" message="tns:addNewCustomer"/>
+<output wsam:Action="http://BankService.com/CustomerWebService/addNewCustomerResponse" message="tns:addNewCustomerResponse"/>
+<fault message="tns:ParseException" name="ParseException" wsam:Action="http://BankService.com/CustomerWebService/addNewCustomer/Fault/ParseException"/>
+</operation>
+<operation name="getCustomerName">
+<input wsam:Action="http://BankService.com/CustomerWebService/getCustomerNameRequest" message="tns:getCustomerName"/>
+<output wsam:Action="http://BankService.com/CustomerWebService/getCustomerNameResponse" message="tns:getCustomerNameResponse"/>
+</operation>
+<operation name="setCustomerBD">
+<input wsam:Action="http://BankService.com/CustomerWebService/setCustomerBDRequest" message="tns:setCustomerBD"/>
+<output wsam:Action="http://BankService.com/CustomerWebService/setCustomerBDResponse" message="tns:setCustomerBDResponse"/>
+</operation>
+<operation name="setSortCode">
+<input wsam:Action="http://BankService.com/CustomerWebService/setSortCodeRequest" message="tns:setSortCode"/>
+<output wsam:Action="http://BankService.com/CustomerWebService/setSortCodeResponse" message="tns:setSortCodeResponse"/>
+</operation>
+<operation name="sendCusAccNo">
+<input wsam:Action="http://BankService.com/CustomerWebService/sendCusAccNoRequest" message="tns:sendCusAccNo"/>
+<output wsam:Action="http://BankService.com/CustomerWebService/sendCusAccNoResponse" message="tns:sendCusAccNoResponse"/>
+</operation>
+<operation name="setBalance">
+<input wsam:Action="http://BankService.com/CustomerWebService/setBalanceRequest" message="tns:setBalance"/>
+<output wsam:Action="http://BankService.com/CustomerWebService/setBalanceResponse" message="tns:setBalanceResponse"/>
+</operation>
 </portType>
 <binding name="CustomerWebServicePortBinding" type="tns:CustomerWebService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="setBalance">
+<operation name="sendAllStringDetails">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -93,7 +107,34 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="setSortCode">
+<operation name="getCurrentCusAccNo">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="getAllCustomersDetails">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="addNewCustomer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="ParseException">
+<soap:fault name="ParseException" use="literal"/>
+</fault>
+</operation>
+<operation name="getCustomerName">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -111,7 +152,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="getCustomerName">
+<operation name="setSortCode">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -129,22 +170,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="sendAllStringDetails">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="getCurrentCusAccNo">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-</operation>
-<operation name="getAllCustomersDetails">
+<operation name="setBalance">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
