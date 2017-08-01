@@ -5,6 +5,7 @@
  */
 package com.BankService;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -114,4 +115,24 @@ public class CustomerWebService {
         return dbCon.setScode(accNo);
     }
 
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "addNewCustomer")
+    public boolean addNewCustomer(@WebParam(name = "name") String name,
+            @WebParam(name = "address") String address,
+            @WebParam(name = "bday") String bday, @WebParam(name = "sortCode") String sortCode,
+            @WebParam(name = "accountType") String accountType,
+            @WebParam(name = "accountNumber") String accountNumber,
+            @WebParam(name = "card") String card, @WebParam(name = "mobile") String mobile,
+            @WebParam(name = "balance") String balance, @WebParam(name = "email") String email) throws ParseException {
+        //TODO write your implementation code here:
+        
+        double doubleBalance = Double.parseDouble(balance);
+        int intSortCode = Integer.parseInt(sortCode);
+        Date BD = new SimpleDateFormat("yyyy-MM-dd").parse(bday);
+        java.sql.Date sqlBD = new java.sql.Date(BD.getTime());
+               
+        return dbCon.insertNewCustomer(name, address, sqlBD, intSortCode, accountType, accountNumber, card, mobile, doubleBalance, email);
+    }
 }

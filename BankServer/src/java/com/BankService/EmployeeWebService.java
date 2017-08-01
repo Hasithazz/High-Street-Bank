@@ -10,8 +10,11 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import java.sql.SQLException;
 import java.sql.*;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -19,7 +22,7 @@ import java.util.InputMismatchException;
  */
 @WebService(serviceName = "EmployeeWebService")
 public class EmployeeWebService {
-    
+
     private static String dbUserName = "root";
     private static String dbPassword = "";
     private static String dbDriverClass = "com.mysql.jdbc.Driver";
@@ -27,17 +30,15 @@ public class EmployeeWebService {
     private static Connection con = null;
     private DatabaseConnection dbCon = new DatabaseConnection();
 
-
     /**
      * Web service operation
      */
     @WebMethod(operationName = "getName")
     public String getName(String empName) {
-       
-        
+
         String name = dbCon.getName(empName);
         return name;
-        }  
+    }
 
     /**
      * Web service operation
@@ -46,7 +47,7 @@ public class EmployeeWebService {
     public boolean findUser(@WebParam(name = "userName") String userName) {
         //TODO write your implementation code here:
         boolean check = dbCon.findUser(userName);
-        
+
         return check;
     }
 
@@ -60,7 +61,4 @@ public class EmployeeWebService {
         return userPassword;
     }
 
-
-        
-    }
-
+}
