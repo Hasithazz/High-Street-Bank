@@ -244,6 +244,7 @@ public class CreateCustomer extends javax.swing.JFrame {
             try {
                 if (addNewCustomer(name, address, bday, sortcode, accountType, accountNumber, card, mobile, balance, email)) {
                     JOptionPane.showMessageDialog(null, "Customer added", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);
+                    dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Something Went WRONG", "ERROR", JOptionPane.ERROR_MESSAGE);
                 }

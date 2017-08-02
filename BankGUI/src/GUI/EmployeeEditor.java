@@ -44,6 +44,7 @@ public class EmployeeEditor extends javax.swing.JFrame {
         jbtnCreateNew = new javax.swing.JButton();
         jbtnSelect = new javax.swing.JButton();
         jbtnDelete = new javax.swing.JButton();
+        jbtnRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Employee List");
@@ -77,6 +78,14 @@ public class EmployeeEditor extends javax.swing.JFrame {
             }
         });
 
+        jbtnRefresh.setBackground(new java.awt.Color(102, 102, 255));
+        jbtnRefresh.setText("Refresh");
+        jbtnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnRefreshActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -89,7 +98,8 @@ public class EmployeeEditor extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jbtnCreateNew, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jbtnSelect, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jbtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -102,7 +112,9 @@ public class EmployeeEditor extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbtnSelect)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbtnDelete))
+                        .addComponent(jbtnDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbtnRefresh))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -166,6 +178,15 @@ public class EmployeeEditor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbtnDeleteActionPerformed
 
+    private void jbtnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRefreshActionPerformed
+        // TODO add your handling code here:
+        
+        
+        componentInitializing(
+                (ArrayList<String>) sendAllEmployeeNames(),
+                (ArrayList<String>) sendAllEmployeePositions());//calling method by passing return value of the request
+    }//GEN-LAST:event_jbtnRefreshActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -207,6 +228,7 @@ public class EmployeeEditor extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtnCreateNew;
     private javax.swing.JButton jbtnDelete;
+    private javax.swing.JButton jbtnRefresh;
     private javax.swing.JButton jbtnSelect;
     // End of variables declaration//GEN-END:variables
 

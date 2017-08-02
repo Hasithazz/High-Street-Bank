@@ -55,6 +55,8 @@ public class CustomerEditor extends javax.swing.JFrame {
         jbtnSelectCustomer = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListCustomer = new javax.swing.JList<>();
+        jbtnDelete = new javax.swing.JButton();
+        jbtnRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Customers");
@@ -81,6 +83,22 @@ public class CustomerEditor extends javax.swing.JFrame {
         jListCustomer.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jListCustomer);
 
+        jbtnDelete.setBackground(new java.awt.Color(102, 102, 255));
+        jbtnDelete.setText("Delete");
+        jbtnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnDeleteActionPerformed(evt);
+            }
+        });
+
+        jbtnRefresh.setBackground(new java.awt.Color(102, 102, 255));
+        jbtnRefresh.setText("Refresh");
+        jbtnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnRefreshActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -91,7 +109,9 @@ public class CustomerEditor extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbtnCreateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtnSelectCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbtnSelectCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
         jPanel1Layout.setVerticalGroup(
@@ -104,6 +124,10 @@ public class CustomerEditor extends javax.swing.JFrame {
                         .addComponent(jbtnCreateCustomer)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbtnSelectCustomer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbtnDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbtnRefresh)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -142,6 +166,25 @@ public class CustomerEditor extends javax.swing.JFrame {
         // TODO add your handling code here:
         newCustomer.setVisible(true);
     }//GEN-LAST:event_jbtnCreateCustomerActionPerformed
+
+    private void jbtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnDeleteActionPerformed
+
+    private void jbtnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRefreshActionPerformed
+        // TODO add your handling code here:
+        listModel.removeAllElements();
+        jListCustomer.setModel(listModel);
+        AccountNumbers = (ArrayList<String>) getAllCustomersDetails();
+        customersNames = (ArrayList<String>) getCustomerName();
+        for (int i = 0; i < AccountNumbers.size(); i++) {
+            String getAccountNumber = AccountNumbers.get(i);
+            String getName = customersNames.get(i);
+            listModel.addElement(getAccountNumber+"-"+getName);
+            System.out.println(listModel.getElementAt(i));            
+        }   
+        jListCustomer.setModel(listModel);
+    }//GEN-LAST:event_jbtnRefreshActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,6 +226,8 @@ public class CustomerEditor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtnCreateCustomer;
+    private javax.swing.JButton jbtnDelete;
+    private javax.swing.JButton jbtnRefresh;
     private javax.swing.JButton jbtnSelectCustomer;
     // End of variables declaration//GEN-END:variables
 
