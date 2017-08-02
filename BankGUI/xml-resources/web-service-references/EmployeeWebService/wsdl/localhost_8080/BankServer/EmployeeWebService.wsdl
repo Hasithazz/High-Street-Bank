@@ -22,6 +22,12 @@
 <message name="findUserResponse">
 <part name="parameters" element="tns:findUserResponse"/>
 </message>
+<message name="deleteCustomer">
+<part name="parameters" element="tns:deleteCustomer"/>
+</message>
+<message name="deleteCustomerResponse">
+<part name="parameters" element="tns:deleteCustomerResponse"/>
+</message>
 <portType name="EmployeeWebService">
 <operation name="getName">
 <input wsam:Action="http://BankService.com/EmployeeWebService/getNameRequest" message="tns:getName"/>
@@ -34,6 +40,10 @@
 <operation name="findUser">
 <input wsam:Action="http://BankService.com/EmployeeWebService/findUserRequest" message="tns:findUser"/>
 <output wsam:Action="http://BankService.com/EmployeeWebService/findUserResponse" message="tns:findUserResponse"/>
+</operation>
+<operation name="deleteCustomer">
+<input wsam:Action="http://BankService.com/EmployeeWebService/deleteCustomerRequest" message="tns:deleteCustomer"/>
+<output wsam:Action="http://BankService.com/EmployeeWebService/deleteCustomerResponse" message="tns:deleteCustomerResponse"/>
 </operation>
 </portType>
 <binding name="EmployeeWebServicePortBinding" type="tns:EmployeeWebService">
@@ -57,6 +67,15 @@
 </output>
 </operation>
 <operation name="findUser">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="deleteCustomer">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

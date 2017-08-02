@@ -69,4 +69,19 @@ public interface EmployeeWebService {
         @WebParam(name = "userName", targetNamespace = "")
         String userName);
 
+    /**
+     * 
+     * @param accountNumber
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "deleteCustomer", targetNamespace = "http://BankService.com/", className = "webServices.DeleteCustomer")
+    @ResponseWrapper(localName = "deleteCustomerResponse", targetNamespace = "http://BankService.com/", className = "webServices.DeleteCustomerResponse")
+    @Action(input = "http://BankService.com/EmployeeWebService/deleteCustomerRequest", output = "http://BankService.com/EmployeeWebService/deleteCustomerResponse")
+    public boolean deleteCustomer(
+        @WebParam(name = "accountNumber", targetNamespace = "")
+        String accountNumber);
+
 }

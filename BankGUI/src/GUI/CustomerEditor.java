@@ -10,8 +10,6 @@ import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
-
-
 /**
  *
  * @author hsedi
@@ -23,22 +21,22 @@ public class CustomerEditor extends javax.swing.JFrame {
     private DefaultListModel listModel = new DefaultListModel();
     private static CustomerAccount cusAcc;
     private CreateCustomer newCustomer = new CreateCustomer();
-    
+
     /**
      * Creates new form CustomerEditor
      */
     public CustomerEditor() {
-        
+
         initComponents();
         AccountNumbers = (ArrayList<String>) getAllCustomersDetails();
         customersNames = (ArrayList<String>) getCustomerName();
         for (int i = 0; i < AccountNumbers.size(); i++) {
             String getAccountNumber = AccountNumbers.get(i);
             String getName = customersNames.get(i);
-            listModel.addElement(getAccountNumber+"-"+getName);
-            System.out.println(listModel.getElementAt(i));            
-        }   
-        jListCustomer.setModel(listModel);  
+            listModel.addElement(getAccountNumber + "-" + getName);
+            System.out.println(listModel.getElementAt(i));
+        }
+        jListCustomer.setModel(listModel);
     }
 
     /**
@@ -151,14 +149,14 @@ public class CustomerEditor extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (jListCustomer.getSelectedIndex() != -1) {
             String data = jListCustomer.getSelectedValue();
-            System.out.println("GG "+data);
+            System.out.println("GG " + data);
             String[] curruntCustomerAccountNumber = data.split("-");
             getCurrentCusAccNo(curruntCustomerAccountNumber[0]);
             cusAcc = new CustomerAccount();
             cusAcc.setVisible(true);
-            
-        }else{
-        JOptionPane.showMessageDialog(null, "Please select a customer first", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a customer first", "ERROR", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jbtnSelectCustomerActionPerformed
 
@@ -169,6 +167,16 @@ public class CustomerEditor extends javax.swing.JFrame {
 
     private void jbtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDeleteActionPerformed
         // TODO add your handling code here:
+        if (jListCustomer.getSelectedIndex() != -1) {
+            String data = jListCustomer.getSelectedValue();
+            System.out.println("GG " + data);
+            String[] curruntCustomerAccountNumber = data.split("-");
+            if (deleteCustomer(curruntCustomerAccountNumber[0])) {
+                JOptionPane.showMessageDialog(null, "Customer Deleted ", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a customer first", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jbtnDeleteActionPerformed
 
     private void jbtnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRefreshActionPerformed
@@ -180,9 +188,9 @@ public class CustomerEditor extends javax.swing.JFrame {
         for (int i = 0; i < AccountNumbers.size(); i++) {
             String getAccountNumber = AccountNumbers.get(i);
             String getName = customersNames.get(i);
-            listModel.addElement(getAccountNumber+"-"+getName);
-            System.out.println(listModel.getElementAt(i));            
-        }   
+            listModel.addElement(getAccountNumber + "-" + getName);
+            System.out.println(listModel.getElementAt(i));
+        }
         jListCustomer.setModel(listModel);
     }//GEN-LAST:event_jbtnRefreshActionPerformed
 
@@ -248,5 +256,11 @@ public class CustomerEditor extends javax.swing.JFrame {
         com.bankservice.CustomerWebService port = service.getCustomerWebServicePort();
         port.getCurrentCusAccNo(accNO);
     }
-    
+
+    private static boolean deleteCustomer(java.lang.String accountNumber) {
+        webServices.EmployeeWebService_Service service = new webServices.EmployeeWebService_Service();
+        webServices.EmployeeWebService port = service.getEmployeeWebServicePort();
+        return port.deleteCustomer(accountNumber);
+    }
+
 }

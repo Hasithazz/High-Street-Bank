@@ -29,7 +29,9 @@ public class ObjectFactory {
     private final static QName _GetName_QNAME = new QName("http://BankService.com/", "getName");
     private final static QName _GetPassword_QNAME = new QName("http://BankService.com/", "getPassword");
     private final static QName _GetNameResponse_QNAME = new QName("http://BankService.com/", "getNameResponse");
+    private final static QName _DeleteCustomer_QNAME = new QName("http://BankService.com/", "deleteCustomer");
     private final static QName _GetPasswordResponse_QNAME = new QName("http://BankService.com/", "getPasswordResponse");
+    private final static QName _DeleteCustomerResponse_QNAME = new QName("http://BankService.com/", "deleteCustomerResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: webServices
@@ -79,11 +81,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DeleteCustomer }
+     * 
+     */
+    public DeleteCustomer createDeleteCustomer() {
+        return new DeleteCustomer();
+    }
+
+    /**
      * Create an instance of {@link GetPasswordResponse }
      * 
      */
     public GetPasswordResponse createGetPasswordResponse() {
         return new GetPasswordResponse();
+    }
+
+    /**
+     * Create an instance of {@link DeleteCustomerResponse }
+     * 
+     */
+    public DeleteCustomerResponse createDeleteCustomerResponse() {
+        return new DeleteCustomerResponse();
     }
 
     /**
@@ -132,12 +150,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteCustomer }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "deleteCustomer")
+    public JAXBElement<DeleteCustomer> createDeleteCustomer(DeleteCustomer value) {
+        return new JAXBElement<DeleteCustomer>(_DeleteCustomer_QNAME, DeleteCustomer.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetPasswordResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://BankService.com/", name = "getPasswordResponse")
     public JAXBElement<GetPasswordResponse> createGetPasswordResponse(GetPasswordResponse value) {
         return new JAXBElement<GetPasswordResponse>(_GetPasswordResponse_QNAME, GetPasswordResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteCustomerResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "deleteCustomerResponse")
+    public JAXBElement<DeleteCustomerResponse> createDeleteCustomerResponse(DeleteCustomerResponse value) {
+        return new JAXBElement<DeleteCustomerResponse>(_DeleteCustomerResponse_QNAME, DeleteCustomerResponse.class, null, value);
     }
 
 }
