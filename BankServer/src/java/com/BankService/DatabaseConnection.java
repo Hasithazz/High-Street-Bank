@@ -250,6 +250,27 @@ public class DatabaseConnection {
         return inserted;
 
     }
+    public boolean deleteCustomer(String accNo){
+        
+       boolean isDeleted = false;
+
+        try {
+            Class.forName(dbDriverClass);
+            con = DriverManager.getConnection(dbURL, dbUserName, dbPassword);
+            stmt = con.createStatement();
+            String query = "Delete from Customer where accountNumber = ?";
+            pstmt = con.prepareStatement(query);
+            pstmt.setString(1, accNo);
+            
+            pstmt.execute();
+            isDeleted = true;
+            con.close();
+        } catch (Exception e) {
+            System.out.println("User Not inserted");
+            System.err.println(e);
+        }
+        return isDeleted;
+    }
 
     //------------------------------------------------admin---------------------------------------------------------------------
     public boolean findAdmin(String userName) {

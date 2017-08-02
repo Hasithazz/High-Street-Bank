@@ -61,4 +61,13 @@ public class EmployeeWebService {
         return userPassword;
     }
 
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "deleteCustomer")
+    public boolean deleteCustomer(@WebParam(name = "accountNumber") String accountNumber) {
+        //TODO write your implementation code here:
+        return dbCon.deleteCustomer(accountNumber);
+    }
+
 }
