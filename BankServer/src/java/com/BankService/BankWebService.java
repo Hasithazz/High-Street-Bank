@@ -103,6 +103,24 @@ public class BankWebService {
         //TODO write your implementation code here:
         return position;
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "updateEmployee")
+    public boolean updateEmployee(@WebParam(name = "userName") String userName, @WebParam(name = "password") String password, @WebParam(name = "name") String name, @WebParam(name = "postion") String postion) {
+        //TODO write your implementation code here:
+        return dbCon.updateEmployee(userName, password, name, position, this.name);
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "deleteEmployee")
+    public boolean deleteEmployee(@WebParam(name = "name") String name, @WebParam(name = "position") String position) {
+        //TODO write your implementation code here:
+        return dbCon.deleteEmployee(name, position);
+    }
     
     
 }

@@ -383,4 +383,53 @@ public class DatabaseConnection {
         return details;
     }
 
+    public boolean updateEmployee(String userName, String password, String name, String position, String currentName) {
+
+        boolean isUpdated = false;
+
+        try {
+            Class.forName(dbDriverClass);
+            con = DriverManager.getConnection(dbURL, dbUserName, dbPassword);
+            stmt = con.createStatement();
+            String query = "Update employee set userName = ?, userPassword = ?, Name = ?, Position = ? where Name = ? ";
+            pstmt = con.prepareStatement(query);
+            pstmt.setString(1, userName);
+            pstmt.setString(2, password);
+            pstmt.setString(3, name);
+            pstmt.setString(4, position);
+            pstmt.setString(5, currentName);
+
+            pstmt.executeUpdate();
+            isUpdated = true;
+            con.close();
+        } catch (Exception e) {
+            System.out.println("User Not inserted");
+            System.err.println(e);
+        }
+        return isUpdated;
+    }
+    
+    public boolean deleteEmployee(String name,String position){
+        
+       boolean isDeleted = false;
+
+        try {
+            Class.forName(dbDriverClass);
+            con = DriverManager.getConnection(dbURL, dbUserName, dbPassword);
+            stmt = con.createStatement();
+            String query = "Delete from employee where Name =? AND Position = ?";
+            pstmt = con.prepareStatement(query);
+            pstmt.setString(1, name);
+            pstmt.setString(2, position);
+          
+            pstmt.execute();
+            isDeleted = true;
+            con.close();
+        } catch (Exception e) {
+            System.out.println("User Not inserted");
+            System.err.println(e);
+        }
+        return isDeleted;
+    }
+
 }
