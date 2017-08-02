@@ -4,6 +4,10 @@
 
 <xs:element name="createEmployeeResponse" type="tns:createEmployeeResponse"/>
 
+<xs:element name="deleteEmployee" type="tns:deleteEmployee"/>
+
+<xs:element name="deleteEmployeeResponse" type="tns:deleteEmployeeResponse"/>
+
 <xs:element name="findAdmin" type="tns:findAdmin"/>
 
 <xs:element name="findAdminResponse" type="tns:findAdminResponse"/>
@@ -36,6 +40,10 @@
 
 <xs:element name="setEmployeeDetailsResponse" type="tns:setEmployeeDetailsResponse"/>
 
+<xs:element name="updateEmployee" type="tns:updateEmployee"/>
+
+<xs:element name="updateEmployeeResponse" type="tns:updateEmployeeResponse"/>
+
 <xs:complexType name="setEmployeeDetails">
 <xs:sequence>
 <xs:element name="name" type="xs:string" minOccurs="0"/>
@@ -46,6 +54,21 @@
 <xs:complexType name="setEmployeeDetailsResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateEmployee">
+<xs:sequence>
+<xs:element name="userName" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="postion" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateEmployeeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -100,6 +123,19 @@
 <xs:complexType name="getAdminPasswordResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteEmployee">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="position" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteEmployeeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 

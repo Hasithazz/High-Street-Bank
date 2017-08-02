@@ -6,6 +6,7 @@
 package GUI;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,19 +17,19 @@ public class EmployeeList extends javax.swing.JFrame {
     private String empName;
     private String empPosition;
     private ArrayList<String> details;
-    
+
     /**
      * Creates new form EmployeeList
      */
     public EmployeeList() {
         initComponents();
-        
+
         empName = getEmployeeName();
         empPosition = getEmployeePosition();
-        System.out.println(empName+"-----  "+empPosition);
+        System.out.println(empName + "-----  " + empPosition);
         details = (ArrayList<String>) setEmployeeDetails(empName, empPosition);
         initializeComponents(details);
-        
+
     }
 
     /**
@@ -175,7 +176,7 @@ public class EmployeeList extends javax.swing.JFrame {
         jTxtName.setEnabled(true);
         jTxtPossition.setEnabled(true);
         jBtrnSave.setEnabled(true);
-        
+
         jTxtUserName.setEditable(true);
         jTxtPassword.setEditable(true);
         jTxtName.setEditable(true);
@@ -184,6 +185,22 @@ public class EmployeeList extends javax.swing.JFrame {
 
     private void jBtrnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtrnSaveActionPerformed
         // TODO add your handling code here:
+
+        String userName = jTxtUserName.getText();
+        String password = jTxtPassword.getText();
+        String name = jTxtName.getText();
+        String position = jTxtPossition.getText();
+
+        if (!(userName.equals("") || password.equals("") || name.equals("") || position.equals(""))) {
+            if (updateEmployee(userName, password, name, position)) {
+                JOptionPane.showMessageDialog(null, "Employee Updated", "SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Something Went WRONG", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Some fields are empty", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_jBtrnSaveActionPerformed
 
     /**
@@ -236,14 +253,14 @@ public class EmployeeList extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void initializeComponents(ArrayList<String> details) {
-        
+
         jTxtUserName.setText(details.get(0));
         jTxtPassword.setText(details.get(1));
         jTxtName.setText(details.get(2));
         jTxtPossition.setText(details.get(3));
-        
+
     }
-    
+
     private static String getEmployeeName() {
         com.bankservice.BankWebService_Service service = new com.bankservice.BankWebService_Service();
         com.bankservice.BankWebService port = service.getBankWebServicePort();
@@ -262,5 +279,10 @@ public class EmployeeList extends javax.swing.JFrame {
         return port.setEmployeeDetails(name, position);
     }
 
-    
+    private static boolean updateEmployee(java.lang.String userName, java.lang.String password, java.lang.String name, java.lang.String postion) {
+        com.bankservice.BankWebService_Service service = new com.bankservice.BankWebService_Service();
+        com.bankservice.BankWebService port = service.getBankWebServicePort();
+        return port.updateEmployee(userName, password, name, postion);
+    }
+
 }

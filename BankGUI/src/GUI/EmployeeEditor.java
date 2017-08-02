@@ -7,6 +7,7 @@ package GUI;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,8 +15,9 @@ import javax.swing.DefaultListModel;
  */
 public class EmployeeEditor extends javax.swing.JFrame {
 
-    private CreateEmployee newEmployee ;
+    private CreateEmployee newEmployee;
     private EmployeeList empList;
+
     /**
      * Creates new form EmployeeEditor
      */
@@ -24,7 +26,7 @@ public class EmployeeEditor extends javax.swing.JFrame {
         componentInitializing(
                 (ArrayList<String>) sendAllEmployeeNames(),
                 (ArrayList<String>) sendAllEmployeePositions());//calling method by passing return value of the request
-        
+
     }
 
     /**
@@ -41,6 +43,7 @@ public class EmployeeEditor extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         jbtnCreateNew = new javax.swing.JButton();
         jbtnSelect = new javax.swing.JButton();
+        jbtnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Employee List");
@@ -66,6 +69,14 @@ public class EmployeeEditor extends javax.swing.JFrame {
             }
         });
 
+        jbtnDelete.setBackground(new java.awt.Color(102, 102, 255));
+        jbtnDelete.setText("Delete");
+        jbtnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -75,8 +86,10 @@ public class EmployeeEditor extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbtnCreateNew, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtnSelect, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jbtnCreateNew, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbtnSelect, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -87,7 +100,9 @@ public class EmployeeEditor extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jbtnCreateNew)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbtnSelect))
+                        .addComponent(jbtnSelect)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbtnDelete))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -108,29 +123,48 @@ public class EmployeeEditor extends javax.swing.JFrame {
 
     private void jbtnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSelectActionPerformed
         // TODO add your handling code here:
-        
+
         if (jList1.getSelectedIndex() != -1) {
             String data = jList1.getSelectedValue();
             String[] empDetails = data.split("-");
-            
+
             String empName = empDetails[0];
             String empPosition = empDetails[1];
-            
+
             setEmpNameAndPosition(empName, empPosition);//set current employee name and postion in the service
             empList = new EmployeeList();
             empList.setVisible(true);
-            
+
         } else {
+            JOptionPane.showMessageDialog(null, "Please select a customer first", "ERROR", JOptionPane.INFORMATION_MESSAGE);
         }
-        
+
     }//GEN-LAST:event_jbtnSelectActionPerformed
 
     private void jbtnCreateNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCreateNewActionPerformed
         // TODO add your handling code here:
-        
+
         newEmployee = new CreateEmployee();
         newEmployee.setVisible(true);
     }//GEN-LAST:event_jbtnCreateNewActionPerformed
+
+    private void jbtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDeleteActionPerformed
+        // TODO add your handling code here:
+        if (jList1.getSelectedIndex() != -1) {
+            String data = jList1.getSelectedValue();
+            String[] empDetails = data.split("-");
+
+            String empName = empDetails[0];
+            String empPosition = empDetails[1];
+
+            //delete selected employee by using name and postion  
+            if (deleteEmployee(empName, empPosition)) {
+                JOptionPane.showMessageDialog(null, "Employee Deleted", "SUCSESSFUL", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a employee first", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_jbtnDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,21 +206,22 @@ public class EmployeeEditor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtnCreateNew;
+    private javax.swing.JButton jbtnDelete;
     private javax.swing.JButton jbtnSelect;
     // End of variables declaration//GEN-END:variables
 
-    public void componentInitializing (ArrayList<String> allNames, ArrayList<String> allPositions){
-        
+    public void componentInitializing(ArrayList<String> allNames, ArrayList<String> allPositions) {
+
         DefaultListModel employeeListModel = new DefaultListModel();
-        
+
         for (int i = 0; i < allNames.size(); i++) {
             String name = allNames.get(i);
             String position = allPositions.get(i);
-            employeeListModel.addElement(name+"-"+position);
-            
+            employeeListModel.addElement(name + "-" + position);
+
         }
         jList1.setModel(employeeListModel);
-        
+
     }
 
     private static java.util.List<java.lang.String> sendAllEmployeeNames() {
@@ -206,5 +241,11 @@ public class EmployeeEditor extends javax.swing.JFrame {
         com.bankservice.BankWebService port = service.getBankWebServicePort();
         port.setEmpNameAndPosition(arg0, arg1);
     }
-    
+
+    private static boolean deleteEmployee(java.lang.String name, java.lang.String position) {
+        com.bankservice.BankWebService_Service service = new com.bankservice.BankWebService_Service();
+        com.bankservice.BankWebService port = service.getBankWebServicePort();
+        return port.deleteEmployee(name, position);
+    }
+
 }

@@ -24,10 +24,14 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _DeleteEmployeeResponse_QNAME = new QName("http://BankService.com/", "deleteEmployeeResponse");
+    private final static QName _UpdateEmployee_QNAME = new QName("http://BankService.com/", "updateEmployee");
     private final static QName _SetEmployeeDetails_QNAME = new QName("http://BankService.com/", "setEmployeeDetails");
     private final static QName _CreateEmployeeResponse_QNAME = new QName("http://BankService.com/", "createEmployeeResponse");
     private final static QName _FindAdminResponse_QNAME = new QName("http://BankService.com/", "findAdminResponse");
     private final static QName _GetAdminPasswordResponse_QNAME = new QName("http://BankService.com/", "getAdminPasswordResponse");
+    private final static QName _DeleteEmployee_QNAME = new QName("http://BankService.com/", "deleteEmployee");
+    private final static QName _UpdateEmployeeResponse_QNAME = new QName("http://BankService.com/", "updateEmployeeResponse");
     private final static QName _SetEmpNameAndPositionResponse_QNAME = new QName("http://BankService.com/", "setEmpNameAndPositionResponse");
     private final static QName _GetAdminPassword_QNAME = new QName("http://BankService.com/", "getAdminPassword");
     private final static QName _SendAllEmployeeNames_QNAME = new QName("http://BankService.com/", "sendAllEmployeeNames");
@@ -155,11 +159,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DeleteEmployeeResponse }
+     * 
+     */
+    public DeleteEmployeeResponse createDeleteEmployeeResponse() {
+        return new DeleteEmployeeResponse();
+    }
+
+    /**
      * Create an instance of {@link SetEmployeeDetails }
      * 
      */
     public SetEmployeeDetails createSetEmployeeDetails() {
         return new SetEmployeeDetails();
+    }
+
+    /**
+     * Create an instance of {@link UpdateEmployee }
+     * 
+     */
+    public UpdateEmployee createUpdateEmployee() {
+        return new UpdateEmployee();
     }
 
     /**
@@ -187,11 +207,45 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DeleteEmployee }
+     * 
+     */
+    public DeleteEmployee createDeleteEmployee() {
+        return new DeleteEmployee();
+    }
+
+    /**
+     * Create an instance of {@link UpdateEmployeeResponse }
+     * 
+     */
+    public UpdateEmployeeResponse createUpdateEmployeeResponse() {
+        return new UpdateEmployeeResponse();
+    }
+
+    /**
      * Create an instance of {@link SetEmpNameAndPositionResponse }
      * 
      */
     public SetEmpNameAndPositionResponse createSetEmpNameAndPositionResponse() {
         return new SetEmpNameAndPositionResponse();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteEmployeeResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "deleteEmployeeResponse")
+    public JAXBElement<DeleteEmployeeResponse> createDeleteEmployeeResponse(DeleteEmployeeResponse value) {
+        return new JAXBElement<DeleteEmployeeResponse>(_DeleteEmployeeResponse_QNAME, DeleteEmployeeResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateEmployee }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "updateEmployee")
+    public JAXBElement<UpdateEmployee> createUpdateEmployee(UpdateEmployee value) {
+        return new JAXBElement<UpdateEmployee>(_UpdateEmployee_QNAME, UpdateEmployee.class, null, value);
     }
 
     /**
@@ -228,6 +282,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://BankService.com/", name = "getAdminPasswordResponse")
     public JAXBElement<GetAdminPasswordResponse> createGetAdminPasswordResponse(GetAdminPasswordResponse value) {
         return new JAXBElement<GetAdminPasswordResponse>(_GetAdminPasswordResponse_QNAME, GetAdminPasswordResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteEmployee }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "deleteEmployee")
+    public JAXBElement<DeleteEmployee> createDeleteEmployee(DeleteEmployee value) {
+        return new JAXBElement<DeleteEmployee>(_DeleteEmployee_QNAME, DeleteEmployee.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateEmployeeResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://BankService.com/", name = "updateEmployeeResponse")
+    public JAXBElement<UpdateEmployeeResponse> createUpdateEmployeeResponse(UpdateEmployeeResponse value) {
+        return new JAXBElement<UpdateEmployeeResponse>(_UpdateEmployeeResponse_QNAME, UpdateEmployeeResponse.class, null, value);
     }
 
     /**
